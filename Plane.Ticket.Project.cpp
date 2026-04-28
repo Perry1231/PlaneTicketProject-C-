@@ -1,6 +1,6 @@
 #include <iostream>
-#include <thread> // Для std::this_thread::sleep_for
-#include <chrono> // Для std::chrono::seconds
+#include <thread> // ??? std::this_thread::sleep_for
+#include <chrono> // ??? std::chrono::seconds
 using namespace std;
 
 
@@ -15,7 +15,7 @@ void HelloFoo()
     cout << "\nI hope you will like it." << endl;
 }
 
-// The main function is the entry point of the program
+
 
 int main()
 {
