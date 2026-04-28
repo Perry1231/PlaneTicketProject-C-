@@ -15,7 +15,7 @@ void HelloFoo()
     cout << "\nI hope you will like it." << endl;
 }
 
-
+// The main function is the entry point of the program
 
 int main()
 {
