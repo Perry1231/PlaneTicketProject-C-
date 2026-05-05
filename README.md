@@ -1,2 +1,2 @@
-# PlaneTicketProject-C-
-Plroject about ticket boocking fooly writted on c++
+# TaskBook
+Simple proggram about task book \ planner fooly writted on c++
