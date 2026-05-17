@@ -3,14 +3,14 @@
 #include <chrono> // ??? std::chrono::seconds
 #include <string>
 #include <cstdlib> // ??? std::srand, std::rand
-using namespace std;
+#include <vector>
 
 
 class TaskBook
 {
     private:
-    string name;
-    string description;
+    std::string name;
+    std::string description;
     int num;                        // Task number or ID
     int priority;                   // Task priority level
     bool completed;
@@ -21,8 +21,8 @@ class TaskBook
 static int taskCount;
 
     TaskBook() {
-        cout << "TaskBook constructor called." << endl;
-        cout <<"===============================" << endl;
+        std::cout << "TaskBook constructor called." << std::endl;
+        std::cout <<"===============================" << std::endl;
         name = "Default Task";
         description = "This is a default task.";
         priority = 1;
@@ -30,24 +30,24 @@ static int taskCount;
     }
 
 
-void AddTask(const string& name_, const string& description_, int num_, int priority_) {
+void AddTask(const std::string& name_, const std::string& description_, int num_, int priority_) {
     taskCount++;
- taskCount=num;
-        cout << "Adding task: " << name_ << endl;
-        cout <<"===============================" << endl;
-        cout << "Description: " << description_ << endl;
-        cout << "Number: " << num_ << endl;
-        cout << "Priority: " << priority_ << endl;
-        cout <<"===============================\n\n" << endl;
+    num=taskCount;
+        std::cout << "Adding task: " << name_ << std::endl;
+        std::cout <<"===============================" << std::endl;
+        std::cout << "Description: " << description_ << std::endl;
+        std::cout << "Number: " << num_ << std::endl;
+        std::cout << "Priority: " << priority_ << std::endl;
+        std::cout <<"===============================\n\n" << std::endl;
     }
 
 
 
 
     void RemoveTask(int &num_) {                           
-        cout << "Removing task: " << num_ << endl;
+        std::cout << "Removing task: " << num_ << std::endl;
         
-        cout <<"===============================" << endl;
+        std::cout <<"===============================" << std::endl;
 
         
     }
@@ -55,76 +55,74 @@ void AddTask(const string& name_, const string& description_, int num_, int prio
 
     void DisplayTasks() {
         for(int i = 0; i < taskCount; i++) {
-            cout << "Task " << i + 1 << ": " << name << endl;
+            std::cout << "Task " << i + 1 << ": " << name << std::endl;
         //
         }
     }
 
     void MarkTaskCompleted(int &num_) {
-        cout << "Marking task as completed: " << num_ << endl;
+        std::cout << "Marking task as completed: " << num_ << std::endl;
     }
 
     void SortTasks() {
-        cout << "Sorting tasks..." << endl;
-           cout <<"===============================" << endl;
+        std::cout << "Sorting tasks..." << std::endl;
+           std::cout <<"===============================" << std::endl;
            for(int i = 0; i < taskCount; i++) {
-            cout << "Task " << i + 1 << ": " << name << endl;
+            std::cout << "Task " << i + 1 << ": " << name << std::endl;
 
         }
     }
 
 
-    void FilterTasks(const string& keyword)
+    void FilterTasks(const std::string& keyword)
     {
-        cout << "Filtering tasks with keyword: " << keyword << endl;
+        std::cout << "Filtering tasks with keyword: " << keyword << std::endl;
     }
 
-    void OverrideTask(const string& oldTask, const string& newTask) {
-        cout << "Overriding task: " << oldTask << " with " << newTask << endl;
+    void OverrideTask(const std::string& oldTask, const std::string& newTask) {
+        std::cout << "Overriding task: " << oldTask << " with " << newTask << std::endl;
     }
 
     void ChoiceTask() {
-        cout << "Choosing a random task..." << endl;
+        std::cout << "Choosing a random task..." << std::endl;
     }
 
     ~TaskBook() {
-        cout << "TaskBook destructor called." << endl;
+        std::cout << "TaskBook destructor called." << std::endl;
     }
 };
 
 int TaskBook::taskCount = 0;
 
 void HelpFunction() {
-    cout << "This is a help function." << endl;
+    std::cout << "This is a help function." << std::endl;
 }
 
-void DisplayMenu(int choice) {
-    cout << "TaskBook Menu:" << endl;
-    cout << "1. Add Task" << endl;
-    cout << "2. Remove Task" << endl;
-    cout << "3. Display Tasks" << endl;
-    cout << "4. Mark Task Completed" << endl;
-    cout << "5. Clear Tasks" << endl;
-    cout << "6. Sort Tasks" << endl;
-    cout << "7. Filter Tasks" << endl;
-    cout << "8. Override Task" << endl;
-    cout << "9. Choice Task" << endl;
-    cout << "0. Exit" << endl;
+void DisplayMenu() {
+    std::cout << "TaskBook Menu:" << std::endl;
+    std::cout << "1. Add Task" << std::endl;
+    std::cout << "2. Remove Task" << std::endl;
+    std::cout << "3. Display Tasks" << std::endl;
+    std::cout << "4. Mark Task Completed" << std::endl;
+    std::cout << "5. Sort Tasks" << std::endl;
+    std::cout << "6. Filter Tasks" << std::endl;
+    std::cout << "7. Override Task" << std::endl;
+    std::cout << "8. Choice Task" << std::endl;
+    std::cout << "0. Exit" << std::endl;
 }
 
 
 int main()
 {
+    TaskBook taskBook;
 while(true)
 {
     int choice;
     
-    DisplayMenu(choice);
+    DisplayMenu();
     
-     cout << "Enter your choice: ";
-    cin >> choice;
-
-    TaskBook taskBook;
+     std::cout << "Enter your choice: ";
+    std::cin >> choice;
 
     switch(choice) {
         case 1:
@@ -152,10 +150,10 @@ while(true)
             taskBook.ChoiceTask();
             break;
         case 0:
-            cout << "Exiting..." << endl;
+            std::cout << "Exiting..." << std::endl;
             return 0;
         default:
-            cout << "Invalid choice. Please try again." << endl;
+            std::cout << "Invalid choice. Please try again." << std::endl;
     }
 }
     
